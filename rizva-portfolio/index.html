@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizva Bahrum — 3D Artist</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F5F5F5;
+      --ink: #1A1A1A;
+      --muted: #737373;
+      --line: #E6E6E6;
+      --pill-bg: #1A1A1A;
+      --pill-ink: #FFFFFF;
+    }
+    body.lights-off {
+      --bg: #1A1A1A;
+      --surface: #242424;
+      --ink: #FFFFFF;
+      --muted: #9E9E9E;
+      --line: #2E2E2E;
+      --pill-bg: #FFFFFF;
+      --pill-ink: #1A1A1A;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      letter-spacing: -0.015em;
+    }
+    .nv-border { border-color: var(--line); }
+    .nv-surface { background-color: var(--surface); }
+    .nv-muted { color: var(--muted); }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Minimal Header -->
+  <header class="sticky top-0 z-30 border-b nv-border backdrop-blur-md" style="background-color: color-mix(in srgb, var(--bg) 90%, transparent);">
+    <div class="mx-auto flex max-w-[1360px] items-center justify-between px-5 py-4 sm:px-8">
+      <div class="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+        <a href="#top" class="text-sm font-medium tracking-tight">Rizva Bahrum</a>
+        <span class="text-xs nv-muted">3D Artist at One Week Wonders Studio</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="btn-lights" type="button" class="text-xs nv-muted underline underline-offset-4 hover:opacity-100 transition">
+          Lights on/off
+        </button>
+        
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="mx-auto max-w-[1360px] px-5 py-10 sm:px-8 sm:py-14 space-y-20">
+
+    <!-- SET 01 (TOP): 3D ISOMETRIC ANIMATIONS — PLAYFUL, GREEN, BLUE -->
+    <section id="set-isometric" class="space-y-14">
+      <div class="border-b nv-border pb-3">
+        <h1 class="text-xl sm:text-2xl font-medium tracking-tight">3D Isometric Animations</h1>
+      </div>
+
+      <!-- Theme 1: Playful (Hero: Creative Overflow) -->
+      <div class="space-y-4">
+        <h2 class="text-sm font-medium nv-muted">Playful</h2>
+        <div id="grid-playful" class="space-y-4"></div>
+      </div>
+
+      <!-- Theme 2: Green -->
+      <div class="space-y-4 pt-4">
+        <h2 class="text-sm font-medium nv-muted">Green</h2>
+        <div id="grid-green" class="space-y-4"></div>
+      </div>
+
+      <!-- Theme 3: Blue -->
+      <div class="space-y-4 pt-4">
+        <h2 class="text-sm font-medium nv-muted">Blue</h2>
+        <div id="grid-blue" class="space-y-4"></div>
+      </div>
+    </section>
+
+    <!-- SET 02 (BOTTOM): WINCLEX -->
+    <section id="set-winclex" class="border-t nv-border pt-14 space-y-6">
+      <div class="border-b nv-border pb-3">
+        <h2 class="text-xl sm:text-2xl font-medium tracking-tight">WINCLEX — Company Animations</h2>
+      </div>
+      <div id="grid-winclex" class="space-y-4"></div>
+    </section>
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="border-t nv-border py-8 text-xs nv-muted">
+    <div class="mx-auto flex max-w-[1360px] items-center justify-between px-5 sm:px-8">
+      <span>Rizva Bahrum — One Week Wonders Studio</span>
+      <span>3D Portfolio</span>
+    </div>
+  </footer>
+
+  <script>
+    const COLLECTIONS = {
+      playful: {
+        hero: {
+          title: "Creative Overflow",
+          id: "1NfP5pFrWzx8CTwfcnZ9e_4SqW1kfwPns"
+        },
+        items: [
+          { title: "Beyond Boundaries", id: "1SLhGWj-8kmPK_eDDggTomKzNd1iH37EC" },
+          { title: "Shaping Ideas Into Reality", id: "1q6AjI1eKi3obbUayxSQruxMrUhOAkai7" },
+          { title: "Designing Experience, Not Just Visual", id: "1ttoh-Lh--uMTL9NW6GubBE9MlWofiigl" },
+          { title: "Visual Storytelling", id: "1fgdFfBFgBW62gSHVyG-TIOWHpP-KXJJn" },
+          { title: "Chaos to Clarity", id: "14ErbmkbuLkHXAnh1ISj5ES0-i4X-9oy2" },
+          { title: "Pixel Perfect", id: "1UQ98gi9FI9o1tYFXsKqpzt6-51_8TRX-" },
+          { title: "Behind the Screen", id: "12MBPHLRPmLexiGYg_SwxKZ0Yd-qy_DFG" },
+          { title: "Coffee & Brainstorm", id: "1DA9tYRpYv_TzRc9gP54gk7EsYTrR6UBj" },
+          { title: "Daily Grind & Gradient", id: "1Hf9iflnb7Mqe1T_sRCJ2pya8jdikXxHR" }
+        ]
+      },
+      green: {
+        hero: {
+          title: "Green Isometric 08 (Hero)",
+          id: "1r14wKw8KC3VhrrvUVFUJx5oONl4KjQib"
+        },
+        items: [
+          { title: "Green Isometric 01", id: "1PTjvS7oVHprnAqLlv_TY-uKahfjw1Lf6" },
+          { title: "Green Isometric 02", id: "17sS2MV6N6-OJG6xeBf8MZ30UDOgnie1M" },
+          { title: "Green Isometric 03", id: "1vWdXBO1hK_nAZJh3p1v1cCAEQkppRrgk" },
+          { title: "Green Isometric 04", id: "1ZvLlSctWjCobzsv60OJ6LJK0AKwqgAEL" },
+          { title: "Green Isometric 05", id: "1lHzVsfp6Zb55kavlJ4eLLkoRIPcvx-s3" },
+          { title: "Green Isometric 06", id: "1Dzb4aMLXdkgOrAzheiw-EGHd_b1E99wE" },
+          { title: "Green Isometric 07", id: "1ksbeTJv-bIy2_8SYCEe5a3l4jXJ3qgPy" }
+        ]
+      },
+      blue: {
+        hero: {
+          title: "Blue Isometric 09 (Hero)",
+          id: "18guSpYOrUXTf9WsyiHR1Y3QuCgU_On5Y"
+        },
+        items: [
+          { title: "Blue Isometric 01", id: "13cxaRs9gakTpjnuDx3FpyzImAQrzhxsR" },
+          { title: "Blue Isometric 02", id: "1WIr267q8JyhSP3sH5Pof23_CbQS77HE1" },
+          { title: "Blue Isometric 03", id: "1FZpFmjviDwd_5X3Lmim9-zc4J3GUfBU9" },
+          { title: "Blue Isometric 04", id: "1Acq2voIKIMEyPDYYdQVsf3w9PvuJaBOT" },
+          { title: "Blue Isometric 05", id: "1_U_AfM3gJMKUAYAoOL5OfRKo0eUH2fOH" },
+          { title: "Blue Isometric 06", id: "192Sn4Fs96a0kFAuxaex50ovOolvAY4NL" },
+          { title: "Blue Isometric 07", id: "1O3OmKMeyPOxxn3h9jo2j4SeIqOS-MVFt" },
+          { title: "Blue Isometric 08", id: "1ft-TQq17tZoSZyN55dGsbZj_9P2h0nXK" }
+        ]
+      },
+      winclex: {
+        hero: {
+          title: "Final Map",
+          id: "1nzIQQ2fYjPr4NsUmqqkPihf1BjmVVJ3a"
+        },
+        items: [
+          { title: "Infrastructure", id: "1xqxdsAZMN_blg2bvWoDEYf4fPxYPFDyU" },
+          { title: "Energy", id: "1du3WP21NRIdrs9oxmgjUFhtgLbEdyt08" },
+          { title: "Offshore", id: "1BIpVVEIITaPD3n9oFbK2bpwZ16TVulcS" },
+          { title: "Petrochemical", id: "1iBtDQctD3IbCQfarvlYyiXseotEKTJ6s" },
+          { title: "Waterfront", id: "1K90w9AJDIDDZnB8x9L-orkXudh_YjLJP" },
+          { title: "Facade Care", id: "1lqA8KI8UuLbagbfHiyglJ-shM0IrvHTB" },
+          { title: "Entertainment", id: "1l2uSPwMq88D0Pm20To_dN-FUjKDkCZCY" },
+          { title: "Mobile Clean", id: "1DdQ3E7sTsqHX3lGGGZ7MzK2tXji9O7iw" }
+        ]
+      }
+    };
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function videoSlot(id, title, isHero) {
+      return `
+        <div class="relative h-full w-full">
+          <iframe
+            data-src="https://drive.google.com/file/d/${escapeHtml(id)}/preview"
+            class="lazy-frame h-full w-full border-0"
+            allow="autoplay; fullscreen"
+            title="${escapeHtml(title)}"
+          ></iframe>
+          <!-- Shield over Google Drive's top-right pop-out icon so viewers stay on this page -->
+          <div class="absolute right-0 top-0 h-14 w-14 z-10 bg-transparent" aria-hidden="true"></div>
+        </div>
+      `;
+    }
+
+    function renderCollection(containerId, data) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const heroHtml = `
+        <div class="space-y-2">
+          <div class="overflow-hidden rounded-xl border nv-border nv-surface aspect-[16/9] max-h-[600px] w-full">
+            ${videoSlot(data.hero.id, data.hero.title, true)}
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-medium">${escapeHtml(data.hero.title)}</span>
+          </div>
+        </div>
+      `;
+
+      const smallGridHtml = `
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          ${data.items.map(item => `
+            <div class="space-y-1.5">
+              <div class="overflow-hidden rounded-lg border nv-border nv-surface aspect-[4/3]">
+                ${videoSlot(item.id, item.title, false)}
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="truncate font-medium">${escapeHtml(item.title)}</span>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+
+      container.innerHTML = heroHtml + smallGridHtml;
+    }
+
+    function initStaggeredLazyFrames() {
+      const frames = Array.from(document.querySelectorAll("iframe.lazy-frame"));
+      if (!("IntersectionObserver" in window)) {
+        frames.forEach((f, idx) => {
+          setTimeout(() => { f.src = f.getAttribute("data-src"); }, idx * 140);
+        });
+        return;
+      }
+
+      let loadQueue = [];
+      let loadingActive = false;
+
+      function processQueue() {
+        if (!loadQueue.length) {
+          loadingActive = false;
+          return;
+        }
+        loadingActive = true;
+        const frame = loadQueue.shift();
+        if (frame && !frame.src) {
+          frame.src = frame.getAttribute("data-src");
+        }
+        setTimeout(processQueue, 180);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const frame = entry.target;
+            observer.unobserve(frame);
+            if (!frame.src) {
+              loadQueue.push(frame);
+              if (!loadingActive) processQueue();
+            }
+          }
+        });
+      }, { rootMargin: "250px 0px" });
+
+      frames.forEach(f => observer.observe(f));
+    }
+
+    let lightsOff = false;
+    try {
+      lightsOff = localStorage.getItem("rizva_lights_off") === "1";
+    } catch (e) {}
+    if (lightsOff) document.body.classList.add("lights-off");
+
+    document.getElementById("btn-lights").addEventListener("click", () => {
+      lightsOff = !lightsOff;
+      document.body.classList.toggle("lights-off", lightsOff);
+      try { localStorage.setItem("rizva_lights_off", lightsOff ? "1" : "0"); } catch (e) {}
+    });
+
+    renderCollection("grid-playful", COLLECTIONS.playful);
+    renderCollection("grid-green", COLLECTIONS.green);
+    renderCollection("grid-blue", COLLECTIONS.blue);
+    renderCollection("grid-winclex", COLLECTIONS.winclex);
+    initStaggeredLazyFrames();
+  </script>
+</body>
+</html>
