@@ -40,9 +40,12 @@
     .nv-border { border-color: var(--line); }
     .nv-surface { background-color: var(--surface); }
     .nv-muted { color: var(--muted); }
+    video::-webkit-media-controls {
+      display: none !important;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased" oncontextmenu="return false;">
 
   <!-- Minimal Header -->
   <header class="sticky top-0 z-30 border-b nv-border backdrop-blur-md" style="background-color: color-mix(in srgb, var(--bg) 90%, transparent);">
@@ -56,7 +59,6 @@
         <button id="btn-lights" type="button" class="text-xs nv-muted underline underline-offset-4 hover:opacity-100 transition">
           Lights on/off
         </button>
-        
       </div>
     </div>
   </header>
@@ -107,69 +109,78 @@
   </footer>
 
   <script>
+    const PATH_PLAYFUL = "videos/MIXAR PORTFOLIO/Set 2 (3D Isometric Animations - Playful Dribbble)/Colorful Isometric";
+    const PATH_GREEN = "videos/MIXAR PORTFOLIO/Set 2 (3D Isometric Animations - Playful Dribbble)/Green Isometric";
+    const PATH_BLUE = "videos/MIXAR PORTFOLIO/Set 2 (3D Isometric Animations - Playful Dribbble)/Blue Isometric";
+    const PATH_WINCLEX = "videos/MIXAR PORTFOLIO/Set 1 (Company Animations - WINCLEX)";
+
     const COLLECTIONS = {
       playful: {
+        folder: PATH_PLAYFUL,
         hero: {
           title: "Creative Overflow",
-          id: "1NfP5pFrWzx8CTwfcnZ9e_4SqW1kfwPns"
+          file: "Salinan Creative Flow (1600x1200_Looping)(1).mp4"
         },
         items: [
-          { title: "Beyond Boundaries", id: "1SLhGWj-8kmPK_eDDggTomKzNd1iH37EC" },
-          { title: "Shaping Ideas Into Reality", id: "1q6AjI1eKi3obbUayxSQruxMrUhOAkai7" },
-          { title: "Designing Experience, Not Just Visual", id: "1ttoh-Lh--uMTL9NW6GubBE9MlWofiigl" },
-          { title: "Visual Storytelling", id: "1fgdFfBFgBW62gSHVyG-TIOWHpP-KXJJn" },
-          { title: "Chaos to Clarity", id: "14ErbmkbuLkHXAnh1ISj5ES0-i4X-9oy2" },
-          { title: "Pixel Perfect", id: "1UQ98gi9FI9o1tYFXsKqpzt6-51_8TRX-" },
-          { title: "Behind the Screen", id: "12MBPHLRPmLexiGYg_SwxKZ0Yd-qy_DFG" },
-          { title: "Coffee & Brainstorm", id: "1DA9tYRpYv_TzRc9gP54gk7EsYTrR6UBj" },
-          { title: "Daily Grind & Gradient", id: "1Hf9iflnb7Mqe1T_sRCJ2pya8jdikXxHR" }
+          { title: "Beyond Boundaries", file: "Salinan Beyond Boundaries (1600x1200_Looping)(1).mp4" },
+          { title: "Shaping Ideas Into Reality", file: "Salinan Shaping Ideas Into Reality (1600x1200_Looping).mp4" },
+          { title: "Designing Experience, Not Just Visual", file: "Salinan Designing Experience, Not Just Visual (1600x1200_Looping).mp4" },
+          { title: "Visual Storytelling", file: "Salinan Visual Storytelling (1600x1200_Looping).mp4" },
+          { title: "Chaos to Clarity", file: "Salinan Chaos to Clarity (1600x1200_Looping).mp4" },
+          { title: "Pixel Perfect", file: "Salinan Pixel Perfect (1600x1200_Looping).mp4" },
+          { title: "Behind the Screen", file: "Salinan Behind the Screen (1600x1200_Looping).mp4" },
+          { title: "Coffee & Brainstorm", file: "Salinan Coffee & Brainstorm (1600x1200_Looping).mp4" },
+          { title: "Daily Grind & Gradient", file: "Salinan Daily Grind & Gradient (1600x1200_Looping).mp4" }
         ]
       },
       green: {
+        folder: PATH_GREEN,
         hero: {
           title: "Green Isometric 08 (Hero)",
-          id: "1r14wKw8KC3VhrrvUVFUJx5oONl4KjQib"
+          file: "Salinan Green Isometric Animations 8 (Hero).mp4"
         },
         items: [
-          { title: "Green Isometric 01", id: "1PTjvS7oVHprnAqLlv_TY-uKahfjw1Lf6" },
-          { title: "Green Isometric 02", id: "17sS2MV6N6-OJG6xeBf8MZ30UDOgnie1M" },
-          { title: "Green Isometric 03", id: "1vWdXBO1hK_nAZJh3p1v1cCAEQkppRrgk" },
-          { title: "Green Isometric 04", id: "1ZvLlSctWjCobzsv60OJ6LJK0AKwqgAEL" },
-          { title: "Green Isometric 05", id: "1lHzVsfp6Zb55kavlJ4eLLkoRIPcvx-s3" },
-          { title: "Green Isometric 06", id: "1Dzb4aMLXdkgOrAzheiw-EGHd_b1E99wE" },
-          { title: "Green Isometric 07", id: "1ksbeTJv-bIy2_8SYCEe5a3l4jXJ3qgPy" }
+          { title: "Green Isometric 01", file: "Salinan Green Isometric Animations 1.mp4" },
+          { title: "Green Isometric 02", file: "Salinan Green Isometric Animations 2.mp4" },
+          { title: "Green Isometric 03", file: "Salinan Green Isometric Animations 3.mp4" },
+          { title: "Green Isometric 04", file: "Salinan Green Isometric Animations 4.mp4" },
+          { title: "Green Isometric 05", file: "Salinan Green Isometric Animations 5.mp4" },
+          { title: "Green Isometric 06", file: "Salinan Green Isometric Animations 6.mp4" },
+          { title: "Green Isometric 07", file: "Salinan Green Isometric Animations 7.mp4" }
         ]
       },
       blue: {
+        folder: PATH_BLUE,
         hero: {
           title: "Blue Isometric 09 (Hero)",
-          id: "18guSpYOrUXTf9WsyiHR1Y3QuCgU_On5Y"
+          file: "Salinan Blue Isometric Animations 9 (Hero).mp4"
         },
         items: [
-          { title: "Blue Isometric 01", id: "13cxaRs9gakTpjnuDx3FpyzImAQrzhxsR" },
-          { title: "Blue Isometric 02", id: "1WIr267q8JyhSP3sH5Pof23_CbQS77HE1" },
-          { title: "Blue Isometric 03", id: "1FZpFmjviDwd_5X3Lmim9-zc4J3GUfBU9" },
-          { title: "Blue Isometric 04", id: "1Acq2voIKIMEyPDYYdQVsf3w9PvuJaBOT" },
-          { title: "Blue Isometric 05", id: "1_U_AfM3gJMKUAYAoOL5OfRKo0eUH2fOH" },
-          { title: "Blue Isometric 06", id: "192Sn4Fs96a0kFAuxaex50ovOolvAY4NL" },
-          { title: "Blue Isometric 07", id: "1O3OmKMeyPOxxn3h9jo2j4SeIqOS-MVFt" },
-          { title: "Blue Isometric 08", id: "1ft-TQq17tZoSZyN55dGsbZj_9P2h0nXK" }
+          { title: "Blue Isometric 01", file: "Salinan Blue Isometric Animations 1.mp4" },
+          { title: "Blue Isometric 02", file: "Salinan Blue Isometric Animations 2.mp4" },
+          { title: "Blue Isometric 03", file: "Salinan Blue Isometric Animations 3.mp4" },
+          { title: "Blue Isometric 04", file: "Salinan Blue Isometric Animations 4.mp4" },
+          { title: "Blue Isometric 05", file: "Salinan Blue Isometric Animations 5.mp4" },
+          { title: "Blue Isometric 06", file: "Salinan Blue Isometric Animations 6.mp4" },
+          { title: "Blue Isometric 07", file: "Salinan Blue Isometric Animations 7.mp4" },
+          { title: "Blue Isometric 08", file: "Salinan Blue Isometric Animations 8.mp4" }
         ]
       },
       winclex: {
+        folder: PATH_WINCLEX,
         hero: {
           title: "Final Map",
-          id: "1nzIQQ2fYjPr4NsUmqqkPihf1BjmVVJ3a"
+          file: "FINAL MAP (Background).mp4"
         },
         items: [
-          { title: "Infrastructure", id: "1xqxdsAZMN_blg2bvWoDEYf4fPxYPFDyU" },
-          { title: "Energy", id: "1du3WP21NRIdrs9oxmgjUFhtgLbEdyt08" },
-          { title: "Offshore", id: "1BIpVVEIITaPD3n9oFbK2bpwZ16TVulcS" },
-          { title: "Petrochemical", id: "1iBtDQctD3IbCQfarvlYyiXseotEKTJ6s" },
-          { title: "Waterfront", id: "1K90w9AJDIDDZnB8x9L-orkXudh_YjLJP" },
-          { title: "Facade Care", id: "1lqA8KI8UuLbagbfHiyglJ-shM0IrvHTB" },
-          { title: "Entertainment", id: "1l2uSPwMq88D0Pm20To_dN-FUjKDkCZCY" },
-          { title: "Mobile Clean", id: "1DdQ3E7sTsqHX3lGGGZ7MzK2tXji9O7iw" }
+          { title: "Infrastructure", file: "INFRASTRUCTURE (Background).mp4" },
+          { title: "Energy", file: "ENERGY (Background).mp4" },
+          { title: "Offshore", file: "OFFSHORE (Background).mp4" },
+          { title: "Petrochemical", file: "PETROCHEMICAL (Background).mp4" },
+          { title: "Waterfront", file: "WATERFRONT (Background).mp4" },
+          { title: "Facade Care", file: "FASADE CARE (Background).mp4" },
+          { title: "Entertainment", file: "ENTERTAINMENT (Background).mp4" },
+          { title: "Mobile Clean", file: "MOBILE CLEAN (Background).mp4" }
         ]
       }
     };
@@ -182,29 +193,82 @@
         .replace(/"/g, "&quot;");
     }
 
-    function videoSlot(id, title, isHero) {
+    function encodeRepoPath(folder, file) {
+      const fullPath = `${folder}/${file}`;
+      return fullPath.split("/").map(part => encodeURIComponent(part)).join("/");
+    }
+
+    function videoSlot(folder, file, title) {
+      const encoded = encodeRepoPath(folder, file);
+      const lfsUrl = `https://media.githubusercontent.com/media/rizvabahrum/portfolio-project/main/${encoded}`;
+      const relUrl = `./${encoded}`;
+      const rawUrl = `https://github.com/rizvabahrum/portfolio-project/raw/main/${encoded}`;
+
       return `
-        <div class="relative h-full w-full">
-          <iframe
-            data-src="https://drive.google.com/file/d/${escapeHtml(id)}/preview"
-            class="lazy-frame h-full w-full border-0"
-            allow="autoplay; fullscreen"
-            title="${escapeHtml(title)}"
-          ></iframe>
-          <!-- Shield over Google Drive's top-right pop-out icon so viewers stay on this page -->
-          <div class="absolute right-0 top-0 h-14 w-14 z-10 bg-transparent" aria-hidden="true"></div>
+        <div class="video-card group relative h-full w-full overflow-hidden cursor-pointer select-none" onclick="toggleVideo(this)">
+          <video
+            data-src-primary="${escapeHtml(lfsUrl)}"
+            data-src-secondary="${escapeHtml(relUrl)}"
+            data-src-tertiary="${escapeHtml(rawUrl)}"
+            class="lazy-video block h-full w-full object-cover"
+            muted
+            loop
+            playsinline
+            preload="none"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+          ></video>
+          <div class="play-badge pointer-events-none absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-black/65 text-white backdrop-blur-sm">
+              <svg class="icon-play h-3.5 w-3.5 translate-x-[1px] hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="icon-pause h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </span>
+          </div>
         </div>
       `;
+    }
+
+    function updateBadgeState(card, video) {
+      if (!card || !video) return;
+      const playIcon = card.querySelector(".icon-play");
+      const pauseIcon = card.querySelector(".icon-pause");
+      const badge = card.querySelector(".play-badge");
+      if (video.paused) {
+        if (playIcon) playIcon.classList.remove("hidden");
+        if (pauseIcon) pauseIcon.classList.add("hidden");
+        if (badge) badge.classList.remove("opacity-0");
+      } else {
+        if (playIcon) playIcon.classList.add("hidden");
+        if (pauseIcon) pauseIcon.classList.remove("hidden");
+        if (badge) badge.classList.add("opacity-0");
+      }
+    }
+
+    function toggleVideo(card) {
+      const video = card.querySelector("video");
+      if (!video) return;
+      if (!video.src) {
+        loadVideoElement(video, true);
+        return;
+      }
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+      updateBadgeState(card, video);
     }
 
     function renderCollection(containerId, data) {
       const container = document.getElementById(containerId);
       if (!container) return;
 
+      const isWinclex = containerId === "grid-winclex";
+      const aspectClass = isWinclex ? "aspect-[16/9]" : "aspect-[4/3]";
       const heroHtml = `
-        <div class="space-y-2">
-          <div class="overflow-hidden rounded-xl border nv-border nv-surface aspect-[16/9] max-h-[600px] w-full">
-            ${videoSlot(data.hero.id, data.hero.title, true)}
+        <div class="space-y-2 max-w-4xl mx-auto">
+          <div class="overflow-hidden rounded-xl border nv-border nv-surface w-full ${aspectClass}">
+            ${videoSlot(data.folder, data.hero.file, data.hero.title)}
           </div>
           <div class="flex items-center justify-between text-xs">
             <span class="font-medium">${escapeHtml(data.hero.title)}</span>
@@ -216,8 +280,8 @@
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           ${data.items.map(item => `
             <div class="space-y-1.5">
-              <div class="overflow-hidden rounded-lg border nv-border nv-surface aspect-[4/3]">
-                ${videoSlot(item.id, item.title, false)}
+              <div class="overflow-hidden rounded-lg border nv-border nv-surface ${aspectClass}">
+                ${videoSlot(data.folder, item.file, item.title)}
               </div>
               <div class="flex items-center justify-between text-[11px]">
                 <span class="truncate font-medium">${escapeHtml(item.title)}</span>
@@ -230,45 +294,63 @@
       container.innerHTML = heroHtml + smallGridHtml;
     }
 
-    function initStaggeredLazyFrames() {
-      const frames = Array.from(document.querySelectorAll("iframe.lazy-frame"));
-      if (!("IntersectionObserver" in window)) {
-        frames.forEach((f, idx) => {
-          setTimeout(() => { f.src = f.getAttribute("data-src"); }, idx * 140);
-        });
+    function loadVideoElement(video, shouldPlay) {
+      if (!video || video.dataset.loaded === "1") {
+        if (video && shouldPlay && video.paused) {
+          video.play().catch(() => {});
+        }
         return;
       }
+      video.dataset.loaded = "1";
+      const sources = [
+        video.getAttribute("data-src-primary"),
+        video.getAttribute("data-src-secondary"),
+        video.getAttribute("data-src-tertiary")
+      ].filter(Boolean);
 
-      let loadQueue = [];
-      let loadingActive = false;
+      let attempt = 0;
+      const card = video.closest(".video-card");
 
-      function processQueue() {
-        if (!loadQueue.length) {
-          loadingActive = false;
-          return;
+      video.addEventListener("play", () => updateBadgeState(card, video));
+      video.addEventListener("pause", () => updateBadgeState(card, video));
+
+      video.addEventListener("error", () => {
+        attempt += 1;
+        if (attempt < sources.length) {
+          video.src = sources[attempt];
+          video.load();
+          if (shouldPlay) video.play().catch(() => {});
         }
-        loadingActive = true;
-        const frame = loadQueue.shift();
-        if (frame && !frame.src) {
-          frame.src = frame.getAttribute("data-src");
-        }
-        setTimeout(processQueue, 180);
+      });
+
+      video.src = sources[0];
+      video.load();
+      if (shouldPlay) {
+        video.play().catch(() => {
+          updateBadgeState(card, video);
+        });
+      }
+    }
+
+    function initVideos() {
+      const videos = Array.from(document.querySelectorAll("video.lazy-video"));
+      if (!("IntersectionObserver" in window)) {
+        videos.forEach(v => loadVideoElement(v, true));
+        return;
       }
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+          const video = entry.target;
           if (entry.isIntersecting) {
-            const frame = entry.target;
-            observer.unobserve(frame);
-            if (!frame.src) {
-              loadQueue.push(frame);
-              if (!loadingActive) processQueue();
-            }
+            loadVideoElement(video, true);
+          } else if (video.dataset.loaded === "1" && !video.paused) {
+            video.pause();
           }
         });
-      }, { rootMargin: "250px 0px" });
+      }, { rootMargin: "200px 0px", threshold: 0.1 });
 
-      frames.forEach(f => observer.observe(f));
+      videos.forEach(v => observer.observe(v));
     }
 
     let lightsOff = false;
@@ -287,7 +369,7 @@
     renderCollection("grid-green", COLLECTIONS.green);
     renderCollection("grid-blue", COLLECTIONS.blue);
     renderCollection("grid-winclex", COLLECTIONS.winclex);
-    initStaggeredLazyFrames();
+    initVideos();
   </script>
 </body>
 </html>
